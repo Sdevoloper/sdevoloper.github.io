@@ -1,31 +1,133 @@
+<!-- Created By CodingNepal - www.codingnepalweb.com  -->
 <!DOCTYPE html>
-<!-- Coding by CodingLab | www.codinglabweb.com-->
-<html lang="en" dir="ltr">
-  <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <title> Website Loading Animation | CodingLab </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesome Quiz App | CodingNepal</title>
     <link rel="stylesheet" href="style.css">
-   </head>
+    <!-- FontAweome CDN Link for Icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
+</head>
 <body>
-  <section>
-    <div class="dots">
-      <span style="--i:1;"></span>
-      <span style="--i:2;"></span>
-      <span style="--i:3;"></span>
-      <span style="--i:4;"></span>
-      <span style="--i:5;"></span>
-      <span style="--i:6;"></span>
-      <span style="--i:7;"></span>
-      <span style="--i:8;"></span>
-      <span style="--i:9;"></span>
-      <span style="--i:10;"></span>
-      <span style="--i:11;"></span>
-      <span style="--i:12;"></span>
-      <span style="--i:13;"></span>
-      <span style="--i:14;"></span>
-      <span style="--i:15;"></span>
+    <a href="dictionary.html" class="button1">Dictionary</a>
+    <div class="btns3">
+        <a href="dictionary.html">Dictionary</a>
+        <a href="dictionary.html">Dictionary</a>
+     </div>
+    
+
+    <div class="wrapper">
+        <div class="toast">
+          <div class="content">
+            <div class="icon"><i class="uil uil-wifi"></i></div>
+            <div class="details">
+              <span>You're online now</span>
+              <p>Hurray! Internet is connected.</p>
+            </div>
+          </div>
+          <div class="close-icon"><i class="uil uil-times"></i></div>
+        </div>
+      </div>
+      <div class="wrapper2">
+        <div class="display">
+           <div id="time"></div>
+        </div>
+        <span></span>
+        <span></span>
+     </div>
+     <script>
+        setInterval(()=>{
+          const time = document.querySelector(".display #time");
+          let date = new Date();
+          let hours = date.getHours();
+          let minutes = date.getMinutes();
+          let seconds = date.getSeconds();
+          let day_night = "AM";
+          if(hours > 12){
+            day_night = "PM";
+            hours = hours - 12;
+          }
+          if(seconds < 10){
+            seconds = "0" + seconds;
+          }
+          if(minutes < 10){
+            minutes = "0" + minutes;
+          }
+          if(hours < 10){
+            hours = "0" + hours;
+          }
+          time.textContent = hours + ":" + minutes + ":" + seconds + " "+ day_night;
+        });
+     </script>
+    <!-- start Quiz button -->
+    <div class="start_btn"><button>Start Exam</button></div>
+
+    <!-- Info Box -->
+    <div class="info_box">
+        <div class="info-title"><span>Some Rules of this Quiz</span></div>
+        <div class="info-list">
+            <div class="info">1. You will have only <span>15 seconds</span> per each question.</div>
+            <div class="info">2. Once you select your answer, it can't be undone.</div>
+            <div class="info">3. You can't select any option once time goes off.</div>
+            <div class="info">4. You can't exit from the Quiz while you're playing.</div>
+            <div class="info">5. You'll get points on the basis of your correct answers.</div>
+        </div>
+        <div class="buttons">
+            <button class="quit">Exit Quiz</button>
+            <button class="restart">Continue</button>
+        </div>
     </div>
-  </section>
+
+    <!-- Quiz Box -->
+    <div class="quiz_box">
+        <header>
+            <div class="title">Awesome Quiz Application</div>
+            <div class="timer">
+                <div class="time_left_txt">Time Left</div>
+                <div class="timer_sec">15</div>
+            </div>
+            <div class="time_line"></div>
+        </header>
+        <section>
+            <div class="que_text">
+                <!-- Here I've inserted question from JavaScript -->
+            </div>
+            <div class="option_list">
+                <!-- Here I've inserted options from JavaScript -->
+            </div>
+        </section>
+
+        <!-- footer of Quiz Box -->
+        <footer>
+            <div class="total_que">
+                <!-- Here I've inserted Question Count Number from JavaScript -->
+            </div>
+            <button class="next_btn">Next Que</button>
+        </footer>
+    </div>
+
+    <!-- Result Box -->
+    <div class="result_box">
+        <div class="icon">
+            <i class="fas fa-crown"></i>
+        </div>
+        <div class="complete_text">You've completed the Quiz!</div>
+        <div class="score_text">
+            <!-- Here I've inserted Score Result from JavaScript -->
+        </div>
+        <div class="buttons">
+            <button class="restart">Replay Quiz</button>
+            <button class="quit">Quit Quiz</button>
+        </div>
+    </div>
+
+    <!-- Inside this JavaScript file I've inserted Questions and Options only -->
+    <script src="js/questions.js"></script>
+    <script src="js/notification.js"></script>
+    <!-- Inside this JavaScript file I've coded all Quiz Codes -->
+    <script src="js/script.js"></script>
 
 </body>
 </html>
