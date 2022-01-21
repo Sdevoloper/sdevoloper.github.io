@@ -1,1 +1,0 @@
-# sdevoloper.github.io
